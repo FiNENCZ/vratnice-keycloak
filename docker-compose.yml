@@ -1,0 +1,40 @@
+services:
+  keycloak_db:
+    image: postgres:15
+    container_name: keycloak_db
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: keycloak123
+    ports:
+      - "5433:5432" # Jiný port, aby se nekolidoval s vratnice_postgres
+    volumes:
+      - ./keycloak_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "keycloak"]
+      interval: 10s
+      retries: 5
+      start_period: 30s
+      timeout: 20s
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.1.3
+    container_name: vratnice_keycloak
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin123
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://keycloak_db:5432/keycloak
+      KC_DB_USERNAME: keycloak
+      KC_DB_PASSWORD: keycloak123
+    ports:
+      - "8081:8080"
+    volumes:
+      - ./keycloak-config/themes:/opt/keycloak/themes
+      - ./keycloakify-theme:/opt/keycloak/providers
+    command:
+      - "start-dev"
+      - "--import-realm"
+    depends_on:
+      keycloak_db:
+        condition: service_healthy

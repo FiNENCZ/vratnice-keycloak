@@ -1,0 +1,21 @@
+{
+    "id": "master",
+    "realm": "master",
+    "enabled": true,
+    "clients": [
+      {
+        "clientId": "vratnice",
+        "secret": "9nHBonekvi7OrT7KMeVsTpNjaFzsUCW8",
+        "enabled": true,
+        "publicClient": false,
+        "redirectUris": ["http://localhost:8080/*"],
+        "protocol": "openid-connect",
+        "standardFlowEnabled": true,
+        "serviceAccountsEnabled": true,
+        "attributes": {
+          "saml.signing.private.key": "RSA",
+          "saml.signing.public.key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA35s7PlkSECbnElLkwx4om5UzYun5F6sXQOLIWAIGv0Hg98w+zU+2vDr/nnW+2MbRQ0aWrE7oJgD6xjZVdxwwZAT7veHngaBAdqFhSTQd+OnSsQ7FuA3uqSpof7H53TzQ+OKszmAUNSArCe8tBj3qNeHpp4+f9c2tEQ7l0fj5bEZ9vL5Er6sxsuIhf5dY3CzCbhFeTMYC0+PBgvedxmujIgo5Tua481+GLMkssTKcGhEQ9rBodmEPIKOkxpE0pvwp9P36o5nTweiYzDLWtFGjSW/PyiY8LJ2+e9bnDTq0N2RkmMj+DBKx4Bc2XR5VNmPDzw12NaVOVG8k6HfQoa/XRwIDAQAB"
+        }
+      }
+    ]
+  }
