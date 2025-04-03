@@ -1,4 +1,4 @@
-# README - Aplikace Vrátnice
+# Vrátnice - návod ke spuštění a nastavení
 
 Tento dokument popisuje nastavení, konfiguraci a spuštění aplikace Vrátnice spolu s přidruženým Keycloak autentizačním serverem. Níže najdete informace o uživatelských účtech, konfiguraci Docker souborů a postup spuštění aplikací.
 
@@ -51,8 +51,8 @@ Aplikace Vrátnice se skládá z backendové části (Java) a frontendové čás
   1. Otevřete projekt v IDE.
   2. Ověřte konfiguraci databáze (viz Docker soubory níže).
   3. Spusťte hlavní třídu aplikace (např. `VratniceApplication`) nebo použijte příkaz:
-     ```bash
-     mvn spring-boot:run
+    ```bash
+    mvn spring-boot:run
     ```
     
 ### Frontend (Angular)
